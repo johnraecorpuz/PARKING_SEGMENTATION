@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: parking-segmentation
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn ParkingSegmentation_FastAPI:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: OPENCV_LOG_LEVEL
+        value: ERROR
+      - key: PYTHONUNBUFFERED
+        value: 1 
